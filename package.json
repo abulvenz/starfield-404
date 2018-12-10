@@ -1,0 +1,21 @@
+{
+  "name": "starfield-404",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "node_modules/.bin/parcel src/index.html",
+    "gh-page": "node_modules/.bin/parcel build src/index.html --public-url https://abulvenz.github.io/starfield-404 -d docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Andreas Eismann",
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "^1.1.6",
+    "tagl-mithril": "^1.0.4"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.10.3"
+  }
+}
