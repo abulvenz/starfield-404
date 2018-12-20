@@ -143,7 +143,6 @@ class Star {
 
 class Space {
   oncreate(vnode) {
-    console.log(vnode.dom);
     this.ctx = vnode.dom.getContext("2d");
     this.clear();
   }
