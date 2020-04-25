@@ -1,1 +1,28 @@
-body {margin: 0 0 0 0;overflow: hidden;}
+body {
+    margin: 0 0 0 0;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+}
+
+.container canvas,
+.overlay {
+    position: absolute;
+}
+
+canvas {
+    border: 1px solid black;
+    height: 100vh;
+}
+
+.overlay {
+    color: rgb(240, 255, 246, 0.4);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40vh;
+    width: 100%;
+    text-align: center;
+    padding-top: 30vh;
+    font-weight: 500;
+}
