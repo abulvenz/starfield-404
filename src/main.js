@@ -2,7 +2,7 @@ import m from "mithril";
 import tagl from "tagl-mithril";
 import fn from "./fn";
 
-const { canvas, div } = tagl(m);
+const { canvas, div, small, hr, br, h1, p } = tagl(m);
 
 let space_width = innerWidth * 15;
 let space_height = innerHeight * 15;
@@ -92,7 +92,6 @@ const iterate = () => {
     let ave = lastTen.reduce((a, b) => a + b, 0) / averageWindowSize;
     last = now;
     if (ave < targetPeriodInMillis) {
-        console.log(`adding up to ${stars.length} ${ave}`)
         fn.range(0, starsToAdd).forEach(i =>
             stars.push(star()));
     }
@@ -207,6 +206,9 @@ m.mount(document.body, {
     view: vnode =>
         div.container([
             m(Space),
-            div.overlay('404')
+            div.overlay(h1('404'),
+                br(),
+                small(p(`You see ${stars.length} stars,`,
+                    ` but not the page you where looking for.`)))
         ])
 });

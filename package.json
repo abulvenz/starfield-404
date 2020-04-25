@@ -13,6 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "mithril": "^1.1.6",
+    "normalize.css": "^8.0.1",
     "tagl-mithril": "^1.0.4"
   },
   "devDependencies": {
