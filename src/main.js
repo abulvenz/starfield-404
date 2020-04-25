@@ -209,6 +209,6 @@ m.mount(document.body, {
             div.overlay(h1('404'),
                 br(),
                 small(p(`You see ${stars.length} stars,`,
-                    ` but not the page you where looking for.`)))
+                    ` but not the page you were looking for.`)))
         ])
 });
