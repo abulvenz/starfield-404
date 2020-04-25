@@ -12,7 +12,7 @@ let frust = 0.3;
 let numberOfStars = 404;
 
 const averageWindowSize = 100;
-const targetFPS = 50;
+const targetFPS = 60;
 
 const targetPeriodInMillis = 1000 / targetFPS;
 
@@ -92,7 +92,7 @@ const iterate = () => {
     let ave = lastTen.reduce((a, b) => a + b, 0) / averageWindowSize;
     last = now;
     if (ave < targetPeriodInMillis) {
-        // console.log(`adding up to ${stars.length} ${ave}`)
+        console.log(`adding up to ${stars.length} ${ave}`)
         fn.range(0, starsToAdd).forEach(i =>
             stars.push(star()));
     }
