@@ -9,7 +9,14 @@ let space_height = innerHeight * 15;
 let space_depth = 100;
 let frust = 0.3;
 
-let numberOfStars = 4040;
+let numberOfStars = 404;
+
+const averageWindowSize = 100;
+const targetFPS = 50;
+
+const targetPeriodInMillis = 1000 / targetFPS;
+
+const starsToAdd = 10;
 
 let rrr = 0;
 
@@ -67,6 +74,10 @@ const star = () => {
 
 const stars = fn.range(0, numberOfStars).map(star);
 
+let last = Date.now();
+
+let lastTen = [];
+
 const iterate = () => {
     stars.forEach(star => {
         star.move();
@@ -74,9 +85,20 @@ const iterate = () => {
     darkness -= 0.01;
     darkness = Math.max(0, darkness);
     m.redraw();
+    const now = Date.now();
+    lastTen.push(now - last);
+    lastTen.splice(0, lastTen.length - averageWindowSize);
+
+    let ave = lastTen.reduce((a, b) => a + b, 0) / averageWindowSize;
+    last = now;
+    if (ave < targetPeriodInMillis) {
+        // console.log(`adding up to ${stars.length} ${ave}`)
+        fn.range(0, starsToAdd).forEach(i =>
+            stars.push(star()));
+    }
 };
 
-setInterval(iterate, 50);
+setInterval(iterate, 10);
 
 let mypos = () => {
     x,
